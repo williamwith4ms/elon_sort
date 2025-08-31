@@ -24,7 +24,11 @@ int sort(void *varr, int size, int datatype_size) {
 					arr[(j * datatype_size) + k] = arr[((j + 1) * datatype_size) + k];
 				}
 			}
-			arr[(size) * datatype_size] = 0;
+
+			for (int j = 0; j < datatype_size; j++) {
+				arr[((newsize - 1) * datatype_size) + j] = 0;
+			}
+			
 			newsize = newsize - 1;
 		}
 	}
@@ -56,4 +60,6 @@ void main() {
 		printf(" %d", arr[i]);
 	}
 	printf("\n");
+
+	free(arr);
 }
